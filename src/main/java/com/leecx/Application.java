@@ -21,7 +21,7 @@ public class Application {
 	public ConfigurationCustomizer configurationCustomizer() {
 		return new MybatisPlusCustomizers();
 	}
-
+ 
 	class MybatisPlusCustomizers implements ConfigurationCustomizer {
 		@Override
 		public void customize(org.apache.ibatis.session.Configuration configuration) {
