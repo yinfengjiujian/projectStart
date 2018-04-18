@@ -9,7 +9,7 @@ public interface UserService {
 
 	public void saveUser(SysUser user) throws Exception;
 
-	public void updateUser(SysUser user);
+	public void updateUser(SysUser user) throws Exception;
 
 	public void deleteUser(String userId);
 

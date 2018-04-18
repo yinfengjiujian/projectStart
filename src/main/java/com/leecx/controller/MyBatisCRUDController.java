@@ -46,9 +46,11 @@ public class MyBatisCRUDController {
 		
 		return LeeJSONResult.ok("保存成功");
 	}
-	
+
 	@RequestMapping("/updateUser")
-	public LeeJSONResult updateUser() {
+	public LeeJSONResult updateUser()throws Exception{
+
+		log.info("保存用户, 当前时间：{}, 操作人：{}", new Date(), "duanml");
 		
 		SysUser user = new SysUser();
 		user.setId("180412CD5XS12NC0");

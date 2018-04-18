@@ -26,16 +26,24 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private SysUserMapperCustom userMapperCustom;
-	
+
+	java.lang.Thread thread = new java.lang.Thread();
+
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
 	public void saveUser(SysUser user) throws Exception {
+
+		thread.sleep(5001);
+
 		userMapper.insert(user);
 	}
 
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
-	public void updateUser(SysUser user) {
+	public void updateUser(SysUser user) throws Exception{
+
+		thread.sleep(10000);
+
 		userMapper.updateByPrimaryKeySelective(user);
 	}
 

@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
+import org.springframework.scheduling.annotation.EnableScheduling;
 import tk.mybatis.spring.annotation.MapperScan;
 
 @SpringBootApplication
@@ -14,8 +15,11 @@ import tk.mybatis.spring.annotation.MapperScan;
 @MapperScan(basePackages = "com.leecx.mapper")
 //扫描 所有需要的包, 包含一些自用的工具类包 所在的路径
 @ComponentScan(basePackages= {"com.leecx", "org.n3r.idworker"})
+//开启定时任务注解
+@EnableScheduling
 public class Application {
-	
+
+
 	/*************对于是ORACLE 数据库的 mybatis必须增加如下的配置*********Start */
 	@Bean
 	public ConfigurationCustomizer configurationCustomizer() {
