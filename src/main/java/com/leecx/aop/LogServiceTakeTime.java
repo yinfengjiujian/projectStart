@@ -23,7 +23,9 @@ public class LogServiceTakeTime {
 	
 	private final static Logger log = LoggerFactory.getLogger(LogServiceTakeTime.class);
 
+	//扫描到具体包下的所有类和方法
 	@Pointcut("execution(* com.leecx.service..*.*(..))")
+	//扫描到具体包下的所有类的saveUser方法
 	//@Pointcut("execution(* com.leecx.service..*.saveUser(..))")
 	public void performance(){
 	}
@@ -46,13 +48,10 @@ public class LogServiceTakeTime {
 			long took = System.currentTimeMillis() - begin;
 			if (took >= 10000) {
 				log.error("Service 执行时间为: {}秒", took);
-//				log.error("Controller 执行时间为: {}毫秒", took);
 			} else if (took >= 5000) {
 				log.warn("Service 执行时间为: {}秒", took);
-//				log.warn("Controlle r执行时间为: {}毫秒", took);
 			} else  if (took >= 3000) {
 				log.info("Service执行时间为: {}秒", took);
-//				log.info("Controller 执行时间为: {}毫秒", took);
 			}
 			// TODO 日志保存到MongoDB中
 		}
